@@ -1,12 +1,24 @@
-import numpy as np
-m = int(input("Enter size for square matrix : "))
-A = np.ones(m*m).reshape((m, m)) + 1
-for i in range (0,m):
-    for j in range (0,m):
-        if(i < j and j != m):
-            A[i,j] =  0
-        elif(i == j or j == m):
-            A[i,j] =  1
-        else:
-            A[i,j] =  -1
-print("Matrix A size",m,"*",m,": \n",A)
+import numpy as np                                              # import library numpy as np
+m = int(input("Enter size for square matrix : "))               # รับค่ามิติของเมตริกซ์จาก user
+A = np.ones(m*m).reshape((m, m)) + 1                            # เพิ่มค่า 1 ให้กับทุกค่าในเมตริกซ์ จากนั้นเพิ่มทุกค่าในเมตริกซ์ขึ้นอีก 1 เพื่อรีเช็คว่าทุกค่าในเมตริกซ์ถูกเปลี่ยนหลังจากรันโปรแกรม
+for i in range (0,m):                                           # วนลูป m รอบเพื่อระบุค่าแถวของเมตริกซ์
+    for j in range (0,m):                                       # วนลูป m รอบเพื่อระบุค่าหลักของเมตริกซ์
+        if(i < j and j != m):                                   # เช็คเงื่อนไขหาก i<j and j!=m ให้เปลี่ยนค่าในเมตริกซ์ช่องนั้น ๆ เป็น 0
+            A[i,j] =  0                                          
+        elif(i == j or j == m):                                 # เช็คเงื่อนไขหาก i=j or j=m ให้เปลี่ยนค่าในเมตริกซ์ช่องนั้น ๆ เป็น 1
+            A[i,j] =  1                                          
+        else:                                                   # เงื่อนไขอื่น ๆ ให้เปลี่ยนค่าในเมตริกซ์ช่องนั้น ๆ เป็น -1
+            A[i,j] =  -1                                         
+print("Matrix A size",m,"*",m,": \n",A)                         # แสดงค่าเมตริกซ์ที่ได้จากการรันโปรแกรม
+
+''' Example
+
+Enter size for square matrix : 5
+Matrix A size 5 * 5 : 
+ [[ 1.  0.  0.  0.  0.]
+ [-1.  1.  0.  0.  0.]
+ [-1. -1.  1.  0.  0.]
+ [-1. -1. -1.  1.  0.]
+ [-1. -1. -1. -1.  1.]]
+ 
+'''
